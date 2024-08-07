@@ -43,3 +43,21 @@ Project Structure:
     requirements.txt: Python dependencies (to install)
     README.md: Project documentation.
 
+## Fixtures 
+
+ - The conftest.py file contains fixtures that set up the testing environment. Here’s a brief explanation of the fixtures:
+
+ - browser(): Initializes a Playwright browser instance. 
+
+ - page(browser): Creates a new page in the initialized browser for each test function. 
+
+ - username() and password(): Provide the default username and password for the tests.
+
+These fixtures ensure that each test runs in a fresh environment, preventing state leakage between tests.
+
+## Page Classes
+Page classes encapsulate the structure and actions of web pages. This follows the Page Object Model (POM) design pattern, which enhances maintainability and readability. The login_page.py file is an example of a page class.
+
+Here’s a brief explanation of the LoginPage class:
+
+LoginPage: Contains methods to interact with the login page elements, such as filling in the username and password fields and clicking the login button. It helps to keep the tests clean and readable.
