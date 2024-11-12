@@ -1,24 +1,16 @@
 import pytest
-from playwright.sync_api import sync_playwright
-from src.config.credentials import Credentials
+from selenium import webdriver
 
-@pytest.fixture(scope="session")
-def browser():
-    with sync_playwright() as p:
-        browser = p.chromium.launch(headless=False)
-        yield browser
-        browser.close()
+from src.pages.page_factory import PageFactory
 
-@pytest.fixture(scope="function")
-def page(browser):
-    page = browser.new_page()
-    yield page
-    page.close()
 
 @pytest.fixture
-def username():
-    return Credentials.USERNAME
+def driver():
+    driver = webdriver.Chrome()
+    driver.maximize_window()
+    yield driver
+    driver.quit()
 
 @pytest.fixture
-def password():
-    return Credentials.PASSWORD
+def pages(driver):
+    return PageFactory(driver)
