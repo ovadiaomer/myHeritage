@@ -41,7 +41,7 @@ This project is an automation framework designed for navigating to Google, searc
    pip install -r requirements.txt
 
 ## Running the Tests
-To execute the tests, use the pytest command from the project root
+To execute the tests, use the pytest command from the project /tests folder
 (Test reports and results will be generated, with sorted plans being saved in tests/results):
   ```bash
   pytest
